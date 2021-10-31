@@ -1,0 +1,24 @@
+<nz-table #basicTable [nzData]="modelDataArray" [nzShowPagination]="true" [nzFrontPagination]="true" [nzPageSize]=100 [nzPageSizeOptions]=[10,20,50,100]>
+  <thead>
+    <tr>
+      <th *ngFor="let column of listOfColumn" [nzSortFn]="column.compare" [nzSortPriority]="column.priority">{{ column.title }}</th>
+      
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let deviceModel of basicTable.data">
+      <!-- <td>{{ deviceModel.index+1 }}</td> -->
+      <td>{{ deviceModel.name }}</td>
+      <td>
+        <a (click)="viewModelData(deviceModel.index)">Operation</a>
+        <!-- <nz-divider nzType="vertical"></nz-divider>
+        <a (click)="editModelData(deviceModel.index)">Edit</a>
+        <nz-divider nzType="vertical"></nz-divider>
+        <a (click)="deletewModelData(deviceModel.index)">Delete</a> -->
+      </td>
+    </tr>
+  </tbody>
+</nz-table>
+<!-- <ng-template #modalContent>
+  what the fuck is that?    
+</ng-template> -->

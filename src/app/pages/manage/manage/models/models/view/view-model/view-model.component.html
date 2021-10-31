@@ -1,0 +1,53 @@
+<!-- <p>{{modelScheamStr}}</p> -->
+<!-- <nz-divider></nz-divider> -->
+<p>1st Step-Select Operation</p>
+<nz-radio-group [(ngModel)]="operationValue" nzName="radiogroup">
+    <label nz-radio nzValue="0">View</label>
+    <label nz-radio nzValue="1">Edit</label>
+    <label nz-radio nzValue="2">Delete</label>
+</nz-radio-group>
+<nz-divider></nz-divider>
+<p>2nd Step-Generate Command</p>
+<nz-transfer [nzDataSource]="list" [nzShowSelectAll]="false" [nzRenderList]="[leftRenderList, rightRenderList]" (nzChange)="change($event)">
+    <ng-template #leftRenderList let-items let-onItemSelectAll="onItemSelectAll" let-onItemSelect="onItemSelect">
+     <nz-input-group [nzSuffix]="suffixIcon">
+        <input type="text" nz-input placeholder="Search" [(ngModel)]="searchValue" />
+     </nz-input-group>
+     <ng-template #suffixIcon>
+        <i nz-icon nzType="search"></i>
+      </ng-template>
+      <nz-tree #tree [nzData]="treeData" nzExpandAll nzBlockNode [nzSearchValue]="searchValue">
+        <ng-template #nzTreeTemplate let-node>
+        <!-- checkbox框 -->
+          <span
+            class="ant-tree-checkbox"
+            [class.ant-tree-checkbox-disabled]="node.isDisabled"
+            [class.ant-tree-checkbox-checked]="node.isChecked"
+            (click)="checkBoxChange(node, onItemSelect)"
+          >
+          <!-- 空格 -->
+            <span *ngIf="(node.key !== '0') && (operationValue !== '1')" class="ant-tree-checkbox-inner"></span>
+          </span>
+          <!-- 该节点title -->
+          <span (click)="checkBoxChange(node, onItemSelect)" class="ant-tree-node-content-wrapper ant-tree-node-content-wrapper-open">
+              {{node.title}}
+          </span>
+          &nbsp;
+          <input *ngIf="node.isLeaf" nz-input  nzSize="small" style="width: 180px;" (change)='setFiledValue(node.origin,$event)' />
+          <button *ngIf="!node.isLeaf && (node.key == '0') " nz-button nzType="text" nzSize="small" (click)="addNewNode(node)">
+            <i nz-icon nzType="plus" nzTheme="outline"></i>
+          </button>
+        </ng-template>
+      </nz-tree>
+    </ng-template>
+    <ng-template #rightRenderList let-items>
+        <textarea rows="4" nz-input [(ngModel)]="modelSchemaDataStr"></textarea>
+    </ng-template>
+</nz-transfer>
+<br/>
+<button nz-button nzType="primary" (click)="generateCommand($event)">Generate Command</button>
+&nbsp;
+<button nz-button nzType="default" (click)="sendCommand($event)">Send Command</button>
+<nz-divider></nz-divider>
+<p>3rd Step-Result:</p>
+<textarea rows="4" nz-input [(ngModel)]="queryResultStr"></textarea>

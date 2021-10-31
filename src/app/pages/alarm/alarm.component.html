@@ -1,0 +1,54 @@
+<nz-table #basicTable [nzData]="listOfData" >
+    <thead>
+      <tr>
+        <!-- <th>Id</th>
+        <th>Level</th>
+        <th>Module</th>
+        <th>Category</th>
+        <th>Content</th>
+        <th>Confirm Status</th>
+        <th>Clear Status</th>
+        <th>Create Time</th>
+        <th>Update Time</th>
+        <th>Action</th> -->
+        <th>序号</th>
+        <th>告警级别</th>
+        <th>告警来源</th>
+        <th>告警类别</th>
+        <th>告警子类别</th>
+        <th>告警码</th>
+        <th>告警名称</th>
+        <th nzWidth="80px">告警内容</th>
+        <th nzWidth="80px">告警原因</th>
+        <th>确认状态</th>
+        <th>清除状态</th>
+        <th nzWidth="100px">产生时间</th>
+        <th nzWidth="100px">恢复时间</th>
+        <th>操作</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let data of basicTable.data">
+        <td>{{ data.id }}</td>
+        <td>{{ data.level }}</td>
+        <td>{{ data.source }}</td>
+        <td>{{ data.module }}</td>
+        <td>{{ data.category }}</td>
+        <td>{{ data.code }}</td>
+        <td>{{ data.name }}</td>
+        <td>{{ data.content }}</td>
+        <td>{{ data.reason }}</td>
+        <td>{{ data.confirmStatus }}</td>
+        <td>{{ data.clearStatus }}</td>
+        <td>{{ data.createTime }}</td>
+        <td>{{ data.updateTime }}</td>
+        <td>
+          <a routerLink="./models" [queryParams]="{name:data.name,manageIp:data.manageIp,manageUsername:data.manageUsername}">确认</a>
+          <nz-divider nzType="vertical"></nz-divider>
+          <a alt="清除设备告警">清除</a>
+          <nz-divider nzType="vertical"></nz-divider>
+          <a>删除</a>
+        </td>
+      </tr>
+    </tbody>
+  </nz-table>

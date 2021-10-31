@@ -1,0 +1,34 @@
+<nz-table #basicTable [nzData]="listOfData">
+  <thead>
+    <tr>
+      <th>设备名称</th>
+      <th>设备类型</th>
+      <th>管理IP</th>
+      <th>登录用户名</th>
+      <th>硬件版本</th>
+      <th>软件版本</th>
+      <th>NetConf连接状态</th>
+      <th>操作</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let data of basicTable.data">
+      <td>{{ data.name }}</td>
+      <td>{{ data.type }}</td>
+      <td>{{ data.manageIp }}</td>
+      <td>{{ data.manageUsername }}</td>
+      <td>{{ data.hardwareVersion }}</td>
+      <td>{{ data.softwareVersion }}</td>
+      <td>up</td>
+      <td>
+        <a routerLink="./models" [queryParams]="{name:data.name,manageIp:data.manageIp,manageUsername:data.manageUsername}">配置</a>
+        <nz-divider nzType="vertical"></nz-divider>
+        <a>升级</a>
+        <nz-divider nzType="vertical"></nz-divider>
+        <a>删除</a>
+        <nz-divider nzType="vertical"></nz-divider>
+        <a title="关闭与设备的NetConf会话">关闭会话</a>
+      </td>
+    </tr>
+  </tbody>
+</nz-table>

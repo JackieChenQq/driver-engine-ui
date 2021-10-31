@@ -1,0 +1,34 @@
+.topo_node {
+    stroke: #fff;
+    stroke-width: 1.5px;
+}
+
+.topo_selected {
+    stroke: red;
+    stroke-width: 3px;
+}
+
+.topo_faded {
+    opacity: 0.2;
+    stroke-width: 0.2px;
+}
+
+.topo_highlight {
+    font-weight: bold;
+    stroke-width: 2px;
+}
+
+.topo_link {
+    stroke: #999;
+    stroke-opacity: 1;
+    fill: none;
+    /*stroke-width: 1;*/
+}
+
+.topo_hidden {
+    display: none;
+}
+
+.topo_nodename {
+    font-size: 10px;
+}

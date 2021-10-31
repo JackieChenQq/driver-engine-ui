@@ -1,0 +1,6 @@
+{
+  "/southbound": {
+    "target": "http://172.17.2.110:9097/",
+    "secure": false
+  }
+}

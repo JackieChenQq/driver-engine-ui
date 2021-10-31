@@ -1,0 +1,92 @@
+<div nz-row [nzGutter]="24">
+    <div nz-col [nzSpan]="11" style="padding:42px 42px 50px;border:1px solid #f0f0f0;border-radius:2px">
+        <nz-row [nzGutter]="10" style="padding-left: 42px;">
+            <nz-col [nzSpan]="12">
+              <nz-statistic [nzValue]="(1949101 | number)!" [nzTitle]="'Active Users'"></nz-statistic>
+            </nz-col>
+            <nz-col [nzSpan]="12">
+              <nz-statistic [nzValue]="(2019.111 | number: '1.0-2')!" [nzTitle]="'Account Balance (CNY)'"></nz-statistic>
+            </nz-col>
+        </nz-row>
+    </div>
+    <div nz-col [nzSpan]="1"></div>
+    <div nz-col [nzSpan]="11" style="padding:42px 42px 50px;border:1px solid #f0f0f0;border-radius:2px">
+        <nz-row [nzGutter]="10" style="padding-left: 42px;">
+            <nz-col [nzSpan]="12">
+              <nz-statistic [nzValue]="(1128 | number)!" [nzTitle]="'Feedback'" [nzPrefix]="prefixTpl"></nz-statistic>
+              <ng-template #prefixTpl><i nz-icon nzType="like"></i></ng-template>
+            </nz-col>
+            <nz-col [nzSpan]="12">
+              <nz-statistic [nzValue]="93" [nzTitle]="'Unmerged'" [nzSuffix]="'/ 100'"></nz-statistic>
+            </nz-col>
+        </nz-row>
+    </div>
+</div>
+<div nz-row [nzGutter]="24" style="margin-top: 30px;">
+    <div nz-col [nzSpan]="11" style="padding:42px 42px 50px;border:1px solid #f0f0f0;border-radius:2px">
+        <div style="background: #ECECEC; padding: 30px;">
+            <nz-row [nzGutter]="10" style="padding-left: 42px;">
+                <nz-col [nzSpan]="12">
+                <nz-card>
+                    <nz-statistic
+                    [nzValue]="(11.28 | number: '1.0-2')!"
+                    [nzTitle]="'Active'"
+                    [nzPrefix]="prefixTplOne"
+                    [nzSuffix]="'%'"
+                    [nzValueStyle]="{ color: '#3F8600' }"
+                    >
+                    </nz-statistic>
+                    <ng-template #prefixTplOne><i nz-icon nzType="arrow-up"></i></ng-template>
+                </nz-card>
+                </nz-col>
+                <nz-col [nzSpan]="12">
+                <nz-card>
+                    <nz-statistic
+                    [nzValue]="(9.3 | number: '1.0-2')!"
+                    [nzTitle]="'Idle'"
+                    [nzPrefix]="prefixTplTwo"
+                    [nzSuffix]="'%'"
+                    [nzValueStyle]="{ color: '#CF1322' }"
+                    >
+                    </nz-statistic>
+                    <ng-template #prefixTplTwo><i nz-icon nzType="arrow-down"></i></ng-template>
+                </nz-card>
+                </nz-col>
+            </nz-row>
+            </div>
+    </div>
+    <div nz-col [nzSpan]="1"></div>
+    <div  nz-col [nzSpan]="11" style="padding:42px 42px 50px;border:1px solid #f0f0f0;border-radius:2px">
+        <nz-row [nzGutter]="10" style="padding-left: 42px;">
+            <nz-col [nzSpan]="12">
+              <nz-countdown [nzValue]="deadline" [nzTitle]="'Countdown'"></nz-countdown>
+            </nz-col>
+            <nz-col [nzSpan]="12">
+              <nz-countdown [nzValue]="deadline" [nzTitle]="'Million Seconds'" [nzFormat]="'HH:mm:ss:SSS'"></nz-countdown>
+            </nz-col>
+            <nz-col [nzSpan]="24" style="margin-top: 32px;">
+              <nz-countdown [nzValue]="deadline" [nzTitle]="'Day Level'" [nzFormat]="'D 天 H 时 m 分 s 秒'"></nz-countdown>
+            </nz-col>
+        </nz-row>
+    </div>
+</div>
+<br>
+<div style="background: #ECECEC;padding:30px;">
+    <div nz-row [nzGutter]="8">
+        <div nz-col [nzSpan]="8">
+        <nz-card nzTitle="Card title">
+            <p>Card content</p>
+        </nz-card>
+        </div>
+        <div nz-col [nzSpan]="8">
+        <nz-card nzTitle="Card title">
+            <p>Card content</p>
+        </nz-card>
+        </div>
+        <div nz-col [nzSpan]="8">
+        <nz-card nzTitle="Card title">
+            <p>Card content</p>
+        </nz-card>
+        </div>
+    </div>
+</div>
